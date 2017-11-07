@@ -405,6 +405,212 @@ void quad_array::print() /*to be done, the unary ioperators should not print arg
 	}
 	return;
 }
+void quad :: print()
+{
+	if(op >= OP_PLUS && op <= OP_GREATER_EQUAL)
+	{
+		if(result.compare("")==1)
+			cout<<result<<" = "<<arg1;
+		else 
+			cout<<arg1;
+		switch(op)
+		{
+            case OP_PLUS: 
+				cout<<"+"; 
+				break;
+            case OP_MINUS: 
+				cout<<"-"; 
+				break;
+            case OP_MULT: 
+				cout<<"*"; 
+				break;
+            case OP_DIVIDE: 
+				cout<<"/"; 
+				break;
+			case OP_AND: 
+				cout<<"&"; 
+				break;
+            case OP_MODULO: 
+				cout<<"%"; 
+				break;
+            case OP_SHIFT_LEFT: 
+				cout<<"<<"; 
+				break;
+            case OP_SHIFT_RIGHT: 
+				cout<<">>"; 
+				break;
+            case OP_XOR: 
+				cout<<"^"; 
+				break;
+            case OP_OR: 
+				cout<<"|"; 
+				break;
+            case OP_LOGICAL_AND: 
+				cout<<"&&"; 
+				break;
+            case OP_LOGICAL_OR: 
+				cout<<"||"; 
+				break;
+            case OP_LESS: 
+				cout<<"<"; 
+				break;
+            case OP_GREATER: 
+				cout<<">"; 
+				break;
+            case OP_IS_EQUAL: 
+				cout<<"=="; 
+				break;
+            case OP_NOT_EQUAL: 
+				cout<<"!="; 
+				break;
+            case OP_LESS_EQUAL: 
+				cout<<"<="; 
+				break;
+            case OP_GREATER_EQUAL: 
+				cout<<">="; 
+				break;
+		}
+		cout<<arg2<<"\n";
+	}
+	else if(op >= OP_UNARY_PLUS && op <=OP_NOT)
+	{
+		cout<<result<<" = ";
+		switch(op)
+		{
+			case OP_UNARY_PLUS:
+				cout<<"+";
+				break;
+			case OP_UNARY_MINUS:
+				cout<<"-";
+				break;
+			case OP_COMPLEMENT:
+				cout<<"~";
+				break;
+			case OP_NOT:
+				cout<<"!";
+				break; 
+		}
+		cout<<arg1<<"\n";
+	}
+	else if(op >= OP_IF_LESS && op <= OP_IF_NOT_EXPRESSION)
+	{
+		cout<<"if "<<arg1<<" ";
+		switch(op)
+		{
+			case OP_IF_LESS:
+				cout<<"<";
+				break;
+
+			case OP_IF_GREATER:
+				cout<<">";
+				break;
+			case OP_IF_LESS_EQUAL:
+				cout<<"<=";
+				break;
+			case OP_IF_GREATER_EQUAL:
+				cout<<">=";
+				break;
+			case OP_IF_IS_EQUAL:
+				cout<<"==";
+				break;
+			case OP_IF_NOT_EQUAL:
+				cout<<"!=";
+				break;
+			case OP_IF_EXPRESSION:
+				cout<<"!= 0";
+				break;
+			case OP_IF_NOT_EXPRESSION:
+				cout<<"== 0";
+				break;
+		}
+		//printf("%s goto %s\n", arg2, result);
+		cout<<arg2<<" goto "<<result<<"\n";
+	}
+	else if(op == OP_GOTO)
+	{
+		//printf("goto %s\n", result);
+		cout<<"goto "<<result<<"\n";
+	}
+	else if (op == OP_COPY)
+	{
+		//printf("%s = %s\n", result, arg1);
+		cout<<result<<" = "<<arg1<<"\n";
+	}
+	else if (op == OP_MATRIX_ACCESS)
+	{
+		//printf("%s = %s[%s]\n", result, arg1, arg2);
+		cout<<result<<" = "<<arg1<<"["<<arg2<<"]\n";
+	}
+	else if (op == OP_MATRIX_DEREFERENCE)
+	{
+		//printf("%s[%s] = %s", result, arg2, arg1);
+		cout<<result<<"["<<arg2<<"] = "<<arg1<<"\n";
+	}
+	else if (op == OP_REFERENCE)
+	{
+		cout<<result<<"= &"<<arg1<<"\n";
+	}
+	else if (op == OP_DEREFERENCE)
+	{
+		cout<<result<<"= *"<<arg1<<"\n";
+	}
+	else if(op == OP_CALL)
+	{
+		//printf("call %s %s\n", result, arg1);
+		cout<<"call "<<result<<" "<<arg1<<"\n";
+	}
+	else if (op == OP_PARAM)
+	{
+		//printf("param %s\n", result);
+		cout<<"param "<<result<<"\n";
+	}
+	else if (op == OP_RETURN)
+	{
+		//printf("return %s\n", result);
+		cout<<"return "<<result<<"\n";
+	}
+	else if (op == OP_RETURN_VOID)
+	{
+		//printf("return\n");
+		cout<<"return\n";
+	}
+	else if (op >= OP_C2I && op <= OP_D2I)
+	{
+		cout<<result<<" = ";
+		switch(op)
+		{
+			case OP_C2I : 
+				cout<<" Char2Int(" <<arg1<<")" <<endl; 
+				break;
+            case OP_C2D : 
+            	cout<<" Char2Double(" <<arg1<<")" <<endl; 
+            	break;
+            case OP_I2C : 
+            	cout<<" Int2Char("<<arg1<<")"<<endl; 
+            	break;
+            case OP_D2C : 
+            	cout<<" Double2Char("<<arg1<<")"<<endl; 
+            	break;
+            case OP_I2D : 
+            	cout<<" Int2Double("<<arg1<<")"<<endl; 
+            	break;
+            case OP_D2I : 
+            	cout<<" Double2Int("<<arg1<<")"<<endl; 
+            	break;
+		}
+	}
+	else if (op == _FUNCTION_START)
+	{
+		cout<<"function "<<result<<" start\n";
+	}
+	else if (op == _FUNCTION_END)
+	{
+		cout<<"function "<<result<<" end\n";
+	}
+
+
+	//need to add more code here
+}
 
 
 bool typeCheck(expr_attr * e1, expr_attr * e2, bool isAssignment = false)

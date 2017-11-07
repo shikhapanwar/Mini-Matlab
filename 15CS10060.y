@@ -11,6 +11,7 @@
 	symbol_table *GT = new symbol_table;
 	symbol_table *curr_symbol_table = GT;
 	vector<string> string_lits;
+	symbol_table *sym;
 	//GT->name = "Global Table";
 
 %}

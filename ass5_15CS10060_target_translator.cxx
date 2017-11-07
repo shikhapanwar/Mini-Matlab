@@ -4,7 +4,7 @@
 //curr_sym->curr_symbol_table
 extern quad_array *Q_arr;
 extern symbol_table *GT;
-//extern symbol_table *sym;
+extern symbol_table *sym;
 extern symbol_table *curr_symbol_table;
 extern data_type *global_type;
 extern int global_width;
@@ -77,7 +77,7 @@ void Code_Generator:: handle_Globals()
 	    if((GT)->table[i].type== INT_)
             {
                // if((GT)->table[i].init_val == NULL)
-                //    cout<<"\tcomm\t"<<(&GT)->table[i].name<<",4,4\n";
+                //    cout<<"\tcomm\t"<<(GT)->table[i].name<<",4,4\n";
                 //else
                 //{
                     cout << "\t.globl\t"<<(GT)->table[i].name<<"\n";
@@ -143,21 +143,21 @@ void Code_Generator:: Map_TAC_to_Assembly()
    
     for(int j = 0; j < (GT)->table.size(); j++)
     {
-        if((GT)->sym_table[j].name.compare(current_quad.arg1)==0)
-            global_arg1 = &((GT)->sym_table[j]);
+        if((GT)->table[j].name.compare(current_quad.arg1)==0)
+            global_arg1 = &((GT)->table[j]);
         
     }
     
     for(int j = 0; j < (GT)->table.size(); j++)
     {
-        if((GT)->sym_table[j].name.compare(current_quad.arg2)==0)
-            global_arg2 = &((GT)->sym_table[j]);
+        if((GT)->table[j].name.compare(current_quad.arg2)==0)
+            global_arg2 = &((GT)->table[j]);
     }
     
     for(int j = 0; j < (GT)->table.size(); j++)
     {
-        if((GT)->sym_table[j].name.compare(current_quad.result)==0)
-            global_result = &((GT)->sym_table[j]);
+        if((GT)->table[j].name.compare(current_quad.result)==0)
+            global_result = &((GT)->table[j]);
         else 
         global_result = NULL;
     }
@@ -194,7 +194,7 @@ void Code_Generator:: Map_TAC_to_Assembly()
         }
         else
 	{
-	    if(global_arg1->type.type_name.compare("function")==0)
+	    if(global_arg1->type == FUNCTION_)
 	    {
 		func_type = 1;		//handle functions, particularly the library functions which were created
 	    }
@@ -455,7 +455,8 @@ void Code_Generator:: Map_TAC_to_Assembly()
 		 flag = 0;
 		 for(int i=0;i<new_sym->table.size();i++)
 		 {
-		     if(current_quad.result.compare(new_sym->sym_table[i].name)==0 && new_sym->sym_table[i].type.array_type.compare("array")==0)
+		 	/* // for array
+		     if(current_quad.result.compare(new_sym->table[i].name)==0 && new_sym->table[i].type.array_type.compare("array")==0)
 		     {
 			//flag = 0;
 		     	if(result_binding>0)
@@ -463,6 +464,7 @@ void Code_Generator:: Map_TAC_to_Assembly()
 			else
 				{s = s + "\tleaq\t" + generator_result + ",\t%rax\n";flag = 1;}
 		     }
+		     */
 		      
 			//s = s + "\tmovq\t" + generator_result + ",\t%rax\n";
 		 }
@@ -600,6 +602,122 @@ void Code_Generator:: Map_TAC_to_Assembly()
 }
 
 
+
+void Code_Generator:: Bind_Memory_Record()
+{
+    
+    handle_strings();
+    handle_Globals();
+    set_GOTO_Labels_target();
+
+    int quad_size = Q_arr ->array.size();
+    for(int i = 0; i < quad_size; i++)
+    {
+	//print the quads for reference
+	cout<<"  # "; Q_arr ->array[i].print();
+        
+        if(generate_goto.count(i)>0)
+        {
+            cout<<generate_goto[i]<<":\n";
+        }
+        current_quad = Q_arr ->array[i];	//update current quad
+	if(i<quad_size-1)
+		next_quad = Q_arr ->array[i+1];	//update next quad
+        //cout<<current_quad.arg1<<"\n";
+        if(Q_arr ->array[i].op == _FUNCTION_START)
+        {
+            if(Q_arr ->array[i+1].op != _FUNCTION_END)
+            {
+				ptr_type=0;
+                symbol_table_entry *p=NULL;
+                for(int j = 0; j < (GT)->table.size(); j++)
+                {
+                    //cout<<j<<": ";
+                    //cout<<(GT)->table[j].name<<"\n";
+                    if(((GT)->table[j].name).compare(Q_arr ->array[i].result)==0)
+                        p = &((GT)->table[j]);
+                }
+                
+                function_name = Q_arr ->array[i].result;
+                row = p;
+		
+                //new_sym = curr_symbol_table;
+                //if(p!=NULL)
+                new_sym = p->nested_table;
+                curr_symbol_table = new_sym;
+                flag_parameter = 1;
+                int total_count; 
+               // total_count =  row->type.no_of_params;// to be done
+                total_count = 0; //temporarily change this
+                //if (p==NULL)
+                //    cout<<"1\n";
+		for(int j = 0; j < total_count; j++)
+		{
+		    new_sym->table[j].offset = memory;
+		    memory = memory + 8;
+		    cout<<"#--param_offset:"<<memory<<"\n";
+		}
+		//cout<<"#--total:"<<total_count<<"\n";
+		memory_bind_ebp = 0;
+                for(int j = total_count; j < new_sym->table.size(); j++)
+                {
+		    if(new_sym->table[j].name.compare("retVal")==0)
+		    {
+			//new_sym->table[j].size = 4;
+		    }
+                    if(new_sym->table[j].name.compare("retVal"))
+                    {
+                        memory_bind_ebp = memory_bind_ebp - new_sym->table[j].size;
+                        new_sym->table[j].offset = memory_bind_ebp;
+			cout<<"#--loacl var offset: "<<new_sym->table[j].size<<" "<<new_sym->table[j].offset<<"\n";
+                    }
+                }
+                cout<<"#"<<memory_bind_ebp<<endl;
+                stack_size = memory_bind_ebp*(-1) + memory;
+		for(int j = 0; j< new_sym->table.size(); j++)
+		{
+			if(new_sym->table[j].name.compare(current_quad.result)==0||!new_sym->table[j].name.compare(current_quad.arg1)==0
+                       ||!new_sym->table[j].name.compare(current_quad.arg2)==0)
+			{
+				if(new_sym->table[j].type == PTR_)
+					ptr_type = 1;
+				cout<<"##ptr"<<new_sym->table[j].name<<endl;
+			}
+		}
+                create_Function_Prologue();
+            }
+            else
+            {
+                i++;
+		no_of_params = 0;
+		memory = 16;
+		memory_bind_ebp = 0;
+                continue;
+            }
+        }
+        else if(Q_arr ->array[i].op == _FUNCTION_END)
+        {
+            sym = GT;
+            curr_symbol_table = GT;
+	    cout<<"\tleave\n\tret\n";
+            cout << "\t.size\t"<<function_name<<",\t.-"<<function_name<<endl;
+	    function_name = "";
+            no_of_params = 0;
+	    memory = 16;
+	    memory_bind_ebp = 0;
+	    continue;
+        }
+
+        if(function_name.compare(empty_string))
+        {
+            Map_TAC_to_Assembly();
+        }
+
+    }
+}
+
+
+	
 int main()
 {
 

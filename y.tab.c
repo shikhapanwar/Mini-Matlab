@@ -76,10 +76,11 @@
 	symbol_table *GT = new symbol_table;
 	symbol_table *curr_symbol_table = GT;
 	vector<string> string_lits;
+	symbol_table *sym;
 	//GT->name = "Global Table";
 
 
-#line 83 "y.tab.c" /* yacc.c:339  */
+#line 84 "y.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -238,7 +239,7 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 19 "15CS10060.y" /* yacc.c:355  */
+#line 20 "15CS10060.y" /* yacc.c:355  */
 
 	string *str_val;
 	int int_val;
@@ -253,7 +254,7 @@ union YYSTYPE
 	expr_row *expr_row_pt;
 	operator_type *operator_type_;
 
-#line 257 "y.tab.c" /* yacc.c:355  */
+#line 258 "y.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -270,7 +271,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 274 "y.tab.c" /* yacc.c:358  */
+#line 275 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -573,23 +574,23 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint16 yyrline[] =
 {
-       0,   108,   108,   116,   126,   134,   151,   165,   178,   189,
-     205,   212,   217,   248,   276,   283,   287,   289,   297,   320,
-     325,   342,   354,   356,   369,   380,   417,   419,   421,   423,
-     428,   436,   443,   532,   639,   731,   734,   844,   951,   953,
-    1058,  1164,  1168,  1181,  1195,  1209,  1225,  1227,  1241,  1257,
-    1261,  1297,  1299,  1316,  1318,  1333,  1335,  1355,  1357,  1377,
-    1379,  1404,  1406,  1546,  1548,  1550,  1552,  1554,  1556,  1558,
-    1560,  1562,  1564,  1566,  1571,  1575,  1580,  1585,  1591,  1650,
-    1658,  1660,  1665,  1677,  1702,  1707,  1817,  1823,  1828,  1830,
-    1832,  1834,  1836,  1838,  1840,  1842,  1844,  1849,  1854,  1863,
-    1874,  1876,  1878,  1919,  1947,  1961,  1968,  1972,  1977,  1984,
-    1991,  1999,  2008,  2017,  2019,  2024,  2026,  2036,  2041,  2049,
-    2054,  2057,  2062,  2068,  2073,  2075,  2080,  2082,  2087,  2089,
-    2091,  2093,  2095,  2097,  2102,  2104,  2106,  2111,  2113,  2121,
-    2128,  2140,  2144,  2149,  2153,  2157,  2179,  2199,  2219,  2234,
-    2243,  2263,  2282,  2284,  2286,  2288,  2298,  2325,  2327,  2332,
-    2334,  2339,  2364,  2369,  2371
+       0,   109,   109,   117,   127,   135,   152,   166,   179,   190,
+     206,   213,   218,   249,   277,   284,   288,   290,   298,   321,
+     326,   343,   355,   357,   370,   381,   418,   420,   422,   424,
+     429,   437,   444,   533,   640,   732,   735,   845,   952,   954,
+    1059,  1165,  1169,  1182,  1196,  1210,  1226,  1228,  1242,  1258,
+    1262,  1298,  1300,  1317,  1319,  1334,  1336,  1356,  1358,  1378,
+    1380,  1405,  1407,  1547,  1549,  1551,  1553,  1555,  1557,  1559,
+    1561,  1563,  1565,  1567,  1572,  1576,  1581,  1586,  1592,  1651,
+    1659,  1661,  1666,  1678,  1703,  1708,  1818,  1824,  1829,  1831,
+    1833,  1835,  1837,  1839,  1841,  1843,  1845,  1850,  1855,  1864,
+    1875,  1877,  1879,  1920,  1948,  1962,  1969,  1973,  1978,  1985,
+    1992,  2000,  2009,  2018,  2020,  2025,  2027,  2037,  2042,  2050,
+    2055,  2058,  2063,  2069,  2074,  2076,  2081,  2083,  2088,  2090,
+    2092,  2094,  2096,  2098,  2103,  2105,  2107,  2112,  2114,  2122,
+    2129,  2141,  2145,  2150,  2154,  2158,  2180,  2200,  2220,  2235,
+    2244,  2264,  2283,  2285,  2287,  2289,  2299,  2326,  2328,  2333,
+    2335,  2340,  2365,  2370,  2372
 };
 #endif
 
@@ -1646,27 +1647,27 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 108 "15CS10060.y" /* yacc.c:1646  */
+#line 109 "15CS10060.y" /* yacc.c:1646  */
     {
     (yyval.expr) = new expr_attr;
     (yyval.expr)->instr = Q_arr->index;
 }
-#line 1655 "y.tab.c" /* yacc.c:1646  */
+#line 1656 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 116 "15CS10060.y" /* yacc.c:1646  */
+#line 117 "15CS10060.y" /* yacc.c:1646  */
     {
     //$$ = nextlist
     (yyval.expr) = new expr_attr;
     (yyval.expr)->nextlist = makelist(Q_arr->index);
     Q_arr -> emit("","","", OP_GOTO);
 }
-#line 1666 "y.tab.c" /* yacc.c:1646  */
+#line 1667 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 126 "15CS10060.y" /* yacc.c:1646  */
+#line 127 "15CS10060.y" /* yacc.c:1646  */
     {
 																			(yyval.expr) = new expr_attr;
 																			string t = *((yyvsp[0].str_val));
@@ -1675,11 +1676,11 @@ yyreduce:
 																			////cout <<$$->name <<endl<<endl;
 																			//////////////printf("RULE : primary_expression \t->\t\t identifier\n");
 																		}
-#line 1679 "y.tab.c" /* yacc.c:1646  */
+#line 1680 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 136 "15CS10060.y" /* yacc.c:1646  */
+#line 137 "15CS10060.y" /* yacc.c:1646  */
     {
  																			////cout <<"b"<<endl;
  																			(yyval.expr) = new expr_attr;
@@ -1695,11 +1696,11 @@ yyreduce:
 																			quad * q = Q_arr -> emit(tmp, to_string((yyvsp[0].int_val)), OP_COPY);
 																			//////////////printf("RULE : primary_expression \t->\t\t integer\n");
 																		}
-#line 1699 "y.tab.c" /* yacc.c:1646  */
+#line 1700 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 152 "15CS10060.y" /* yacc.c:1646  */
+#line 153 "15CS10060.y" /* yacc.c:1646  */
     {////cout <<"ccccc"<<endl;
 																			(yyval.expr) = new expr_attr;
 																			string tmp = curr_symbol_table -> gen_temp(DOUBLE_);
@@ -1713,11 +1714,11 @@ yyreduce:
 																			quad * q = Q_arr -> emit(tmp, to_string((yyvsp[0].float_val)), OP_COPY);
 																			//////////////printf("RULE : primary_expression \t->\t\t floating point\n");
 																			}
-#line 1717 "y.tab.c" /* yacc.c:1646  */
+#line 1718 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 165 "15CS10060.y" /* yacc.c:1646  */
+#line 166 "15CS10060.y" /* yacc.c:1646  */
     {////cout <<"d"<<endl;
 																			(yyval.expr) = new expr_attr;
 																			string tmp = curr_symbol_table -> gen_temp(CHAR_);
@@ -1731,11 +1732,11 @@ yyreduce:
 																			//////////////printf("RULE : primary_expression \t->\t\t constant\n");
 
 																			}
-#line 1735 "y.tab.c" /* yacc.c:1646  */
+#line 1736 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 178 "15CS10060.y" /* yacc.c:1646  */
+#line 179 "15CS10060.y" /* yacc.c:1646  */
     {////cout <<"a"<<endl;
 																			(yyval.expr) = new expr_attr;
 																			string tmp = curr_symbol_table -> gen_temp(INT_);
@@ -1747,11 +1748,11 @@ yyreduce:
 
 																			//////////////printf("RULE : primary_expression \t->\t\t constant\n");
 																			}
-#line 1751 "y.tab.c" /* yacc.c:1646  */
+#line 1752 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 189 "15CS10060.y" /* yacc.c:1646  */
+#line 190 "15CS10060.y" /* yacc.c:1646  */
     {
 																			
 																			(yyval.expr) = new expr_attr;
@@ -1764,29 +1765,29 @@ yyreduce:
 																			quad * q = Q_arr -> emit(tmp, (*((yyvsp[0].str_val))), OP_COPY);
 																			//////////////printf("RULE : primary_expression \t->\t string_literal\n");
 																			}
-#line 1768 "y.tab.c" /* yacc.c:1646  */
+#line 1769 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 205 "15CS10060.y" /* yacc.c:1646  */
+#line 206 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[-1].expr);
 																			//////////////printf("primary_expression -\t->\t (expression)\n");
 																			
 																			}
-#line 1777 "y.tab.c" /* yacc.c:1646  */
+#line 1778 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 212 "15CS10060.y" /* yacc.c:1646  */
+#line 213 "15CS10060.y" /* yacc.c:1646  */
     {	////cout <<"check"<<endl; //cout << $1->name<<endl;
 
 																				(yyval.expr) = (yyvsp[0].expr); //////////////printf("RULE:\t postfix_expression \t->\tprimary_expression\n");
 																				}
-#line 1786 "y.tab.c" /* yacc.c:1646  */
+#line 1787 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 217 "15CS10060.y" /* yacc.c:1646  */
+#line 218 "15CS10060.y" /* yacc.c:1646  */
     {// to be done
 
 																				
@@ -1817,11 +1818,11 @@ yyreduce:
 
 																				/* to be done*///////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression [ expression ]\n");
 																		}
-#line 1821 "y.tab.c" /* yacc.c:1646  */
+#line 1822 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 248 "15CS10060.y" /* yacc.c:1646  */
+#line 249 "15CS10060.y" /* yacc.c:1646  */
     {	
 
 			     //	//cout << "we are here"<<endl;
@@ -1848,11 +1849,11 @@ yyreduce:
 																	        		////cout <<"CHECK3"<<endl;	
 																	        	//////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression ( argument_expression_list_opt )\n");
 																	      }
-#line 1852 "y.tab.c" /* yacc.c:1646  */
+#line 1853 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 276 "15CS10060.y" /* yacc.c:1646  */
+#line 277 "15CS10060.y" /* yacc.c:1646  */
     {
 																			(yyval.expr) = (yyvsp[-2].expr);
 																			////cout <<"mckam"<<endl<<$1->name<<endl;
@@ -1860,27 +1861,27 @@ yyreduce:
 
 																		//////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression ( )\n");
 																		}
-#line 1864 "y.tab.c" /* yacc.c:1646  */
+#line 1865 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 283 "15CS10060.y" /* yacc.c:1646  */
+#line 284 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) =(yyvsp[-2].expr);
 																			//not supported
 																			//////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression . identifier\n");
 																			}
-#line 1873 "y.tab.c" /* yacc.c:1646  */
+#line 1874 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 287 "15CS10060.y" /* yacc.c:1646  */
+#line 288 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[-2].expr);//////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression -> identifier\n");
 			}
-#line 1880 "y.tab.c" /* yacc.c:1646  */
+#line 1881 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 289 "15CS10060.y" /* yacc.c:1646  */
+#line 290 "15CS10060.y" /* yacc.c:1646  */
     {
 																				 (yyval.expr) = new expr_attr;
 
@@ -1889,11 +1890,11 @@ yyreduce:
 
 																		        //////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression ++\n");
 																		        }
-#line 1893 "y.tab.c" /* yacc.c:1646  */
+#line 1894 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 297 "15CS10060.y" /* yacc.c:1646  */
+#line 298 "15CS10060.y" /* yacc.c:1646  */
     {
 																				 (yyval.expr) = new expr_attr;
 
@@ -1917,18 +1918,18 @@ yyreduce:
 																		        //}   //corrected
 																		        //////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression --\n");
 																		        }
-#line 1921 "y.tab.c" /* yacc.c:1646  */
+#line 1922 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 320 "15CS10060.y" /* yacc.c:1646  */
+#line 321 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[-1].expr); //////////////printf(" RULE:\tpostfix_expression \t->\t postfix_expression .'");
 			}
-#line 1928 "y.tab.c" /* yacc.c:1646  */
+#line 1929 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 325 "15CS10060.y" /* yacc.c:1646  */
+#line 326 "15CS10060.y" /* yacc.c:1646  */
     {
 			/*func_param *f = new func_param;
         f->param_name = $1->addr->name;
@@ -1945,11 +1946,11 @@ yyreduce:
 
 																				//////////////printf(" RULE:\targument_expression_list \t->\t assignment_expression\n");
 																		}
-#line 1949 "y.tab.c" /* yacc.c:1646  */
+#line 1950 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 342 "15CS10060.y" /* yacc.c:1646  */
+#line 343 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																					
 																			(yyval.f_param_list) = (yyvsp[-2].f_param_list) ;
@@ -1959,18 +1960,18 @@ yyreduce:
 																			
 																			//////////////printf(" RULE:\targument_expression_list \t->\t argument_expression_list , assignment_expression\n");
 																		}
-#line 1963 "y.tab.c" /* yacc.c:1646  */
+#line 1964 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
-#line 354 "15CS10060.y" /* yacc.c:1646  */
+#line 355 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr); //////////////printf(" RULE:\tunary_expression \t->\t postfix_expression\n");
 		}
-#line 1970 "y.tab.c" /* yacc.c:1646  */
+#line 1971 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
-#line 356 "15CS10060.y" /* yacc.c:1646  */
+#line 357 "15CS10060.y" /* yacc.c:1646  */
     {//Done
 																				(yyval.expr) = new expr_attr;
 																				string tmp = curr_symbol_table -> gen_temp(curr_symbol_table->lookup((yyvsp[0].expr)->name)->type);
@@ -1983,11 +1984,11 @@ yyreduce:
 
 																				//////////////printf(" RULE:\tunary_expression \t->\t ++ unary_expression\n");
 																				}
-#line 1987 "y.tab.c" /* yacc.c:1646  */
+#line 1988 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
-#line 369 "15CS10060.y" /* yacc.c:1646  */
+#line 370 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				(yyval.expr) = new expr_attr;
 																				string tmp = curr_symbol_table -> gen_temp(curr_symbol_table->lookup((yyvsp[0].expr)->name)->type);
@@ -1998,11 +1999,11 @@ yyreduce:
 																				(yyval.expr)->name = (yyval.expr)->addr->name;
 																				//////////////printf(" RULE:\tunary_expression \t->\t -- unary_expression\n");
 																				}
-#line 2002 "y.tab.c" /* yacc.c:1646  */
+#line 2003 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
-#line 380 "15CS10060.y" /* yacc.c:1646  */
+#line 381 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		////cout <<"GHARWH"<<endl;
 																				(yyval.expr) = new expr_attr;
@@ -2037,49 +2038,49 @@ yyreduce:
 																				}
 																			//////////////printf(" RULE:\tunary_expression \t->\t unary_operator cast_expression\n");
 																			}
-#line 2041 "y.tab.c" /* yacc.c:1646  */
+#line 2042 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
-#line 417 "15CS10060.y" /* yacc.c:1646  */
+#line 418 "15CS10060.y" /* yacc.c:1646  */
     { (yyval.char_val) = '&';//////////////printf(" RULE:\tunary_operator \t->\t & \n");
 		}
-#line 2048 "y.tab.c" /* yacc.c:1646  */
+#line 2049 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
-#line 419 "15CS10060.y" /* yacc.c:1646  */
+#line 420 "15CS10060.y" /* yacc.c:1646  */
     { (yyval.char_val) = '*'; //////////////printf(" RULE:\tunary_operator \t->\t * \n");
 		}
-#line 2055 "y.tab.c" /* yacc.c:1646  */
+#line 2056 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
-#line 421 "15CS10060.y" /* yacc.c:1646  */
+#line 422 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.char_val) = '+';//////////////printf(" RULE:\tunary_operator \t->\t + \n");
 		}
-#line 2062 "y.tab.c" /* yacc.c:1646  */
+#line 2063 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
-#line 423 "15CS10060.y" /* yacc.c:1646  */
+#line 424 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.char_val) = '-'; //////////////printf(" RULE:\tunary_operator \t->\t - \n");
 		}
-#line 2069 "y.tab.c" /* yacc.c:1646  */
+#line 2070 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
-#line 428 "15CS10060.y" /* yacc.c:1646  */
+#line 429 "15CS10060.y" /* yacc.c:1646  */
     {
 																			(yyval.expr) = (yyvsp[0].expr);////cout <<$$->name<<" gs "<<endl;
 																			//////////////printf(" RULE:\tcast_expression \t->\t unary_expression\n");
 
 																			}
-#line 2079 "y.tab.c" /* yacc.c:1646  */
+#line 2080 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
-#line 436 "15CS10060.y" /* yacc.c:1646  */
+#line 437 "15CS10060.y" /* yacc.c:1646  */
     {	////cout <<"im gher1"<<endl;
 
 																/*to be done, doubt  what are cast expression for ?*/
@@ -2087,11 +2088,11 @@ yyreduce:
 																				//////////////printf(" RULE:\tmultiplicative_expression \t->\t cast_expression\n");
 
 																				}
-#line 2091 "y.tab.c" /* yacc.c:1646  */
+#line 2092 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
-#line 443 "15CS10060.y" /* yacc.c:1646  */
+#line 444 "15CS10060.y" /* yacc.c:1646  */
     {	////cout <<"im gher2"<<endl;
 																				   (yyval.expr) = new expr_attr;
 												        data_type type1, type2, type;
@@ -2179,11 +2180,11 @@ yyreduce:
 													//////////////printf(" RULE:\tmultiplicative_expression \t->\t multiplicative_expression * cast_expression\n");
 
 													}
-#line 2183 "y.tab.c" /* yacc.c:1646  */
+#line 2184 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
-#line 532 "15CS10060.y" /* yacc.c:1646  */
+#line 533 "15CS10060.y" /* yacc.c:1646  */
     {//////cout <<"im gher3"<<endl;
 																				 (yyval.expr) = new expr_attr;
 												        data_type type1, type2, type;
@@ -2289,11 +2290,11 @@ yyreduce:
 //////////////printf(" RULE:\tmultiplicative_expression \t->\t multiplicative_expression / cast_expression\n");
 
 }
-#line 2293 "y.tab.c" /* yacc.c:1646  */
+#line 2294 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
-#line 639 "15CS10060.y" /* yacc.c:1646  */
+#line 640 "15CS10060.y" /* yacc.c:1646  */
     {//////cout <<"im gher4"<<endl;
 
 																				 (yyval.expr) = new expr_attr;
@@ -2383,18 +2384,18 @@ yyreduce:
 //////////////printf(" RULE:\tmultiplicative_expression \t->\t multiplicative_expression %% cast_expression\n");
 
 }
-#line 2387 "y.tab.c" /* yacc.c:1646  */
+#line 2388 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
-#line 731 "15CS10060.y" /* yacc.c:1646  */
+#line 732 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tadditive_expression \t->\t multiplicative_expression\n");
 		}
-#line 2394 "y.tab.c" /* yacc.c:1646  */
+#line 2395 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
-#line 734 "15CS10060.y" /* yacc.c:1646  */
+#line 735 "15CS10060.y" /* yacc.c:1646  */
     {
 		//cout <<"check here for addition"<<endl;
 																			 (yyval.expr) = new expr_attr;
@@ -2505,11 +2506,11 @@ yyreduce:
 
 //////////////printf(" RULE:\tadditive_expression \t->\t additive_expression + multiplicative_expression\n");
 }
-#line 2509 "y.tab.c" /* yacc.c:1646  */
+#line 2510 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
-#line 844 "15CS10060.y" /* yacc.c:1646  */
+#line 845 "15CS10060.y" /* yacc.c:1646  */
     {
 																				//////////////printf(" RULE:\tadditive_expression \t->\t additive_expression - multiplicative_expression\n");
 
@@ -2614,18 +2615,18 @@ yyreduce:
 												        (yyval.expr)->name = (curr_symbol_table->gen_temp(type));
 												        Q_arr->emit((yyval.expr)->name, (yyvsp[-2].expr)->name, (yyvsp[0].expr)->name, OP_MINUS);
 														}
-#line 2618 "y.tab.c" /* yacc.c:1646  */
+#line 2619 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
-#line 951 "15CS10060.y" /* yacc.c:1646  */
+#line 952 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr)= (yyvsp[0].expr);//////////////printf(" RULE:\tshift_expression \t->\t additive_expression\n");
 		}
-#line 2625 "y.tab.c" /* yacc.c:1646  */
+#line 2626 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
-#line 953 "15CS10060.y" /* yacc.c:1646  */
+#line 954 "15CS10060.y" /* yacc.c:1646  */
     {
 																					 (yyval.expr) = new expr_attr;
 												        data_type type1, type2, type;
@@ -2731,11 +2732,11 @@ yyreduce:
 																					//not supported
 																					//////////////printf(" RULE:\tshift_expression \t->\t shift_expression << additive_expression\n");
 																					}
-#line 2735 "y.tab.c" /* yacc.c:1646  */
+#line 2736 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
-#line 1058 "15CS10060.y" /* yacc.c:1646  */
+#line 1059 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																					 (yyval.expr) = new expr_attr;
 												        data_type type1, type2, type;
@@ -2839,20 +2840,20 @@ yyreduce:
 
 																				//////////////printf(" RULE:\tshift_expression \t->\t shift_expression >> additive_expression\n");
 																				}
-#line 2843 "y.tab.c" /* yacc.c:1646  */
+#line 2844 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
-#line 1164 "15CS10060.y" /* yacc.c:1646  */
+#line 1165 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) =(yyvsp[0].expr);
 
 																				//////////////printf(" RULE:\trelational_expression \t->\t shift_expression\n");
 																				}
-#line 2852 "y.tab.c" /* yacc.c:1646  */
+#line 2853 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
-#line 1168 "15CS10060.y" /* yacc.c:1646  */
+#line 1169 "15CS10060.y" /* yacc.c:1646  */
     {//done
 
 																				(yyval.expr) = new expr_attr;
@@ -2866,11 +2867,11 @@ yyreduce:
 
 																			//////////////printf(" RULE:\trelational_expression \t->\t relational_expression < shift_expression\n");
 																			}
-#line 2870 "y.tab.c" /* yacc.c:1646  */
+#line 2871 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
-#line 1181 "15CS10060.y" /* yacc.c:1646  */
+#line 1182 "15CS10060.y" /* yacc.c:1646  */
     {//done
 
 																				(yyval.expr) = new expr_attr;
@@ -2885,11 +2886,11 @@ yyreduce:
 
 																		        //////////////printf(" RULE:\trelational_expression \t->\t relational_expression > shift_expression\n");
 																		        }
-#line 2889 "y.tab.c" /* yacc.c:1646  */
+#line 2890 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
-#line 1195 "15CS10060.y" /* yacc.c:1646  */
+#line 1196 "15CS10060.y" /* yacc.c:1646  */
     {//done
 
 																				(yyval.expr) = new expr_attr;
@@ -2904,11 +2905,11 @@ yyreduce:
 																				
 																		        //////////////printf(" RULE:\trelational_expression \t->\t relational_expression <= shift_expression\n");
 																		        }
-#line 2908 "y.tab.c" /* yacc.c:1646  */
+#line 2909 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
-#line 1209 "15CS10060.y" /* yacc.c:1646  */
+#line 1210 "15CS10060.y" /* yacc.c:1646  */
     {	//done
 
 																				(yyval.expr) = new expr_attr;
@@ -2922,18 +2923,18 @@ yyreduce:
 
 																				//////////////printf(" RULE:\trelational_expression \t->\t relational_expression >= shift_expression\n");
 																				}
-#line 2926 "y.tab.c" /* yacc.c:1646  */
+#line 2927 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 46:
-#line 1225 "15CS10060.y" /* yacc.c:1646  */
+#line 1226 "15CS10060.y" /* yacc.c:1646  */
     {	(yyval.expr)=(yyvsp[0].expr);//////////////printf(" RULE:\tequality_expression \t->\t relational_expression\n");
 		}
-#line 2933 "y.tab.c" /* yacc.c:1646  */
+#line 2934 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
-#line 1227 "15CS10060.y" /* yacc.c:1646  */
+#line 1228 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				(yyval.expr) = new expr_attr;
 																				(yyval.expr) -> name = curr_symbol_table->gen_temp(BOOL_);
@@ -2947,11 +2948,11 @@ yyreduce:
 
 																		       	//////////////printf(" RULE:\tequality_expression \t->\t equality_expression == relational_expression\n");
 																		       	}
-#line 2951 "y.tab.c" /* yacc.c:1646  */
+#line 2952 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 48:
-#line 1241 "15CS10060.y" /* yacc.c:1646  */
+#line 1242 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				(yyval.expr) = new expr_attr;
 																				(yyval.expr) -> name = curr_symbol_table->gen_temp( BOOL_);
@@ -2965,20 +2966,20 @@ yyreduce:
 
 																		        //////////////printf(" RULE:\tequality_expression \t->\t equality_expression != relational_expression\n");
 																		        }
-#line 2969 "y.tab.c" /* yacc.c:1646  */
+#line 2970 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
-#line 1257 "15CS10060.y" /* yacc.c:1646  */
+#line 1258 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr)=(yyvsp[0].expr);
 
         																		//////////////printf(" RULE:\tand_expression \t->\t equality_expression\n");
         																		}
-#line 2978 "y.tab.c" /* yacc.c:1646  */
+#line 2979 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
-#line 1261 "15CS10060.y" /* yacc.c:1646  */
+#line 1262 "15CS10060.y" /* yacc.c:1646  */
     {//done
 
 																					/*
@@ -3012,18 +3013,18 @@ yyreduce:
 																		        
 
 																		        }
-#line 3016 "y.tab.c" /* yacc.c:1646  */
+#line 3017 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 51:
-#line 1297 "15CS10060.y" /* yacc.c:1646  */
+#line 1298 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) =(yyvsp[0].expr);//////////////printf(" RULE:\texclusive_or_expression \t->\t and_expression\n");
 		}
-#line 3023 "y.tab.c" /* yacc.c:1646  */
+#line 3024 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 52:
-#line 1299 "15CS10060.y" /* yacc.c:1646  */
+#line 1300 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				
 																				(yyval.expr) = new expr_attr;
@@ -3038,18 +3039,18 @@ yyreduce:
 
 																		        //////////////printf(" RULE:\texclusive_or_expression \t->\t exclusive_or_expression ^ and_expression\n");
 																		       }
-#line 3042 "y.tab.c" /* yacc.c:1646  */
+#line 3043 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 53:
-#line 1316 "15CS10060.y" /* yacc.c:1646  */
+#line 1317 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tinclusive_or_expression \t->\t exclusive_or_expression\n");
 		}
-#line 3049 "y.tab.c" /* yacc.c:1646  */
+#line 3050 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 54:
-#line 1318 "15CS10060.y" /* yacc.c:1646  */
+#line 1319 "15CS10060.y" /* yacc.c:1646  */
     {//done
 (yyval.expr) = new expr_attr;
 																		        symbol_table_entry *f = curr_symbol_table->lookup((yyvsp[-2].expr)->name);//check
@@ -3062,18 +3063,18 @@ yyreduce:
 
 																		        //////////////printf(" RULE:\tinclusive_or_expression \t->\t inclusive_or | exclusive_or_expression\n");
 																		        }
-#line 3066 "y.tab.c" /* yacc.c:1646  */
+#line 3067 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 55:
-#line 1333 "15CS10060.y" /* yacc.c:1646  */
+#line 1334 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) =(yyvsp[0].expr);//////////////printf(" RULE:\tlogical_and_expression \t->\t inclusive_or_expression\n");
 		}
-#line 3073 "y.tab.c" /* yacc.c:1646  */
+#line 3074 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 56:
-#line 1335 "15CS10060.y" /* yacc.c:1646  */
+#line 1336 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																			        //type.type_name = "bool";
 																			        (yyval.expr) = new expr_attr;
@@ -3091,18 +3092,18 @@ yyreduce:
 
 //////////////printf(" RULE:\tlogical_and_expression \t->\t logical_and_expression && inclusive_or_expression\n");
 																			}
-#line 3095 "y.tab.c" /* yacc.c:1646  */
+#line 3096 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 57:
-#line 1355 "15CS10060.y" /* yacc.c:1646  */
+#line 1356 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) =(yyvsp[0].expr);//////////////printf(" RULE:\tlogical_or_expression \t->\t logical_and_expression\n");
 		}
-#line 3102 "y.tab.c" /* yacc.c:1646  */
+#line 3103 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 58:
-#line 1357 "15CS10060.y" /* yacc.c:1646  */
+#line 1358 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		
 																						
@@ -3120,18 +3121,18 @@ yyreduce:
 
         //////////////printf(" RULE:\tlogical_or_expression \t->\t logical_or_expression || logical_and_expression\n");
         }
-#line 3124 "y.tab.c" /* yacc.c:1646  */
+#line 3125 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 59:
-#line 1377 "15CS10060.y" /* yacc.c:1646  */
+#line 1378 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr)=(yyvsp[0].expr);//////////////printf(" RULE:\tconditional_expression \t->\t logical_or_expression\n");
 		}
-#line 3131 "y.tab.c" /* yacc.c:1646  */
+#line 3132 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 60:
-#line 1379 "15CS10060.y" /* yacc.c:1646  */
+#line 1380 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				////cout <<"\nbackpatching\n\n";
 																		        (yyval.expr) = new expr_attr;
@@ -3154,18 +3155,18 @@ yyreduce:
 
         //////////////printf(" RULE:\tconditional_expression \t->\t logical_or_expression ? expression : conditional_expression\n");
         }
-#line 3158 "y.tab.c" /* yacc.c:1646  */
+#line 3159 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 61:
-#line 1404 "15CS10060.y" /* yacc.c:1646  */
+#line 1405 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tassignment_expression \t->\t conditional_expression\n");
 		}
-#line 3165 "y.tab.c" /* yacc.c:1646  */
+#line 3166 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 62:
-#line 1406 "15CS10060.y" /* yacc.c:1646  */
+#line 1407 "15CS10060.y" /* yacc.c:1646  */
     {//done except for arrays
 
 																		if((yyvsp[-2].expr)->is_matrix == true)
@@ -3303,122 +3304,122 @@ e ->name = t;
 
         //////////////printf(" RULE:\tassignment_expression \t->\t unary_expression assignment_operator assignment_expression\n");
         }
-#line 3307 "y.tab.c" /* yacc.c:1646  */
+#line 3308 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 63:
-#line 1546 "15CS10060.y" /* yacc.c:1646  */
+#line 1547 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->assign = true; //////////////printf(" RULE:\tassignment_operator \t->\t = \n");
 		}
-#line 3314 "y.tab.c" /* yacc.c:1646  */
+#line 3315 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 64:
-#line 1548 "15CS10060.y" /* yacc.c:1646  */
+#line 1549 "15CS10060.y" /* yacc.c:1646  */
     { (yyval.operator_type_) = new operator_type; (yyval.operator_type_)->multa = true;//////////////printf(" RULE:\tassignment_operator \t->\t *= \n");
 		}
-#line 3321 "y.tab.c" /* yacc.c:1646  */
+#line 3322 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 65:
-#line 1550 "15CS10060.y" /* yacc.c:1646  */
+#line 1551 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->diva = true;//////////////printf(" RULE:\tassignment_operator \t->\t /= \n");
 		}
-#line 3328 "y.tab.c" /* yacc.c:1646  */
+#line 3329 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 66:
-#line 1552 "15CS10060.y" /* yacc.c:1646  */
+#line 1553 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->rema = true;//////////////printf(" RULE:\tassignment_operator \t->\t %%= \n");
 		}
-#line 3335 "y.tab.c" /* yacc.c:1646  */
+#line 3336 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 67:
-#line 1554 "15CS10060.y" /* yacc.c:1646  */
+#line 1555 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->plusa = true;//////////////printf(" RULE:\tassignment_operator \t->\t += \n");
 		}
-#line 3342 "y.tab.c" /* yacc.c:1646  */
+#line 3343 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 68:
-#line 1556 "15CS10060.y" /* yacc.c:1646  */
+#line 1557 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->minusa = true;//////////////printf(" RULE:\tassignment_operator \t->\t -= \n");
 		}
-#line 3349 "y.tab.c" /* yacc.c:1646  */
+#line 3350 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 69:
-#line 1558 "15CS10060.y" /* yacc.c:1646  */
+#line 1559 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->lsa = true;//////////////printf(" RULE:\tassignment_operator \t->\t <<= \n");
 		}
-#line 3356 "y.tab.c" /* yacc.c:1646  */
+#line 3357 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 70:
-#line 1560 "15CS10060.y" /* yacc.c:1646  */
+#line 1561 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->rsa = true;//////////////printf(" RULE:\tassignment_operator \t->\t >>= \n");
 		}
-#line 3363 "y.tab.c" /* yacc.c:1646  */
+#line 3364 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 71:
-#line 1562 "15CS10060.y" /* yacc.c:1646  */
+#line 1563 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->anda = true;//////////////printf(" RULE:\tassignment_operator \t->\t &=  \n");
 		}
-#line 3370 "y.tab.c" /* yacc.c:1646  */
+#line 3371 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 72:
-#line 1564 "15CS10060.y" /* yacc.c:1646  */
+#line 1565 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->powa = true;//////////////printf(" RULE:\tassignment_operator \t->\t ^= \n");
 		}
-#line 3377 "y.tab.c" /* yacc.c:1646  */
+#line 3378 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 73:
-#line 1566 "15CS10060.y" /* yacc.c:1646  */
+#line 1567 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.operator_type_) = new operator_type; (yyval.operator_type_)->ora = true;//////////////printf(" RULE:\tassignment_operator \t->\t |=  \n");
 		}
-#line 3384 "y.tab.c" /* yacc.c:1646  */
+#line 3385 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 74:
-#line 1571 "15CS10060.y" /* yacc.c:1646  */
+#line 1572 "15CS10060.y" /* yacc.c:1646  */
     { (yyval.expr) = (yyvsp[0].expr);
 
 		//////////////printf(" RULE:\texpression \t->\t assignment_expression\n");
 		}
-#line 3393 "y.tab.c" /* yacc.c:1646  */
+#line 3394 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 75:
-#line 1575 "15CS10060.y" /* yacc.c:1646  */
+#line 1576 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[-2].expr);//////////////printf(" RULE:\texpression \t->\t expression, assignment_expression\n");
 		}
-#line 3400 "y.tab.c" /* yacc.c:1646  */
+#line 3401 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 76:
-#line 1580 "15CS10060.y" /* yacc.c:1646  */
+#line 1581 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tconstant_expression \t->\t conditional_expression\n");
 		}
-#line 3407 "y.tab.c" /* yacc.c:1646  */
+#line 3408 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 77:
-#line 1585 "15CS10060.y" /* yacc.c:1646  */
+#line 1586 "15CS10060.y" /* yacc.c:1646  */
     {
 																					// not supported
 																					// consider only 1 declaration specifier
 																					// TO BE DONE PERHAPS FOR function
 																				//////////////printf(" RULE:\tdeclaration \t->\t declaration_specifiers ;\n");
 																				}
-#line 3418 "y.tab.c" /* yacc.c:1646  */
+#line 3419 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 78:
-#line 1591 "15CS10060.y" /* yacc.c:1646  */
+#line 1592 "15CS10060.y" /* yacc.c:1646  */
     {         															
 																	              	//done
 																	              	(yyval.dec_list) = (yyvsp[-1].dec_list);
@@ -3475,36 +3476,36 @@ e ->name = t;
 																	              	delete (yyvsp[-1].dec_list);
 																					////////////////printf(" RULE:\tdeclaration \t->\t declaration_specifiers init_declarator_list ; \n");
 																			}
-#line 3479 "y.tab.c" /* yacc.c:1646  */
+#line 3480 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 79:
-#line 1650 "15CS10060.y" /* yacc.c:1646  */
+#line 1651 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				(yyval.declara) = (yyvsp[-1].declara);
 
 																				////////////////printf(" RULE:\tdeclaration_specifiers \t->\t type_specifiers declaration_specifiers_opt\n");
 																				}
-#line 3489 "y.tab.c" /* yacc.c:1646  */
+#line 3490 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 80:
-#line 1658 "15CS10060.y" /* yacc.c:1646  */
+#line 1659 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\tdeclaration_specifiers_opt \t->\t empty\n");
 		}
-#line 3496 "y.tab.c" /* yacc.c:1646  */
+#line 3497 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 81:
-#line 1660 "15CS10060.y" /* yacc.c:1646  */
+#line 1661 "15CS10060.y" /* yacc.c:1646  */
     {// not supported
 																				////////////////printf(" RULE:\tdeclaration_specifiers_opt \t->\t declaration_specifiers\n");
 																				}
-#line 3504 "y.tab.c" /* yacc.c:1646  */
+#line 3505 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 82:
-#line 1665 "15CS10060.y" /* yacc.c:1646  */
+#line 1666 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		int i;
 
@@ -3517,11 +3518,11 @@ e ->name = t;
 
 																				////////////////printf(" RULE:\tinit_declarator_list \t->\t init_declarator\n");
 																				}
-#line 3521 "y.tab.c" /* yacc.c:1646  */
+#line 3522 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 83:
-#line 1677 "15CS10060.y" /* yacc.c:1646  */
+#line 1678 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		//print symbol table
 		int i;
@@ -3544,21 +3545,21 @@ e ->name = t;
 
 																				////////////////printf(" RULE:\tinit_declarator_list \t->\t init_declarator_list, init_declarator\n");
 																				}
-#line 3548 "y.tab.c" /* yacc.c:1646  */
+#line 3549 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 84:
-#line 1702 "15CS10060.y" /* yacc.c:1646  */
+#line 1703 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																				(yyval.expr) = (yyvsp[0].expr);
 																				////cout <<"here loc ="<<$$<<endl;
 																				////////////////printf(" RULE:\tinit_declarator \t->\t declarator\n");
 																				}
-#line 3558 "y.tab.c" /* yacc.c:1646  */
+#line 3559 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 85:
-#line 1707 "15CS10060.y" /* yacc.c:1646  */
+#line 1708 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		////cout<<"check here "<<endl;
 																				 (yyval.expr) = (yyvsp[-2].expr);
@@ -3666,116 +3667,116 @@ if(type2 != DOUBLE_)
 																				//////////////printf(" RULE:\tinit_declarator \t->\t declarator = initializer\n");
 
 																				}
-#line 3670 "y.tab.c" /* yacc.c:1646  */
+#line 3671 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 86:
-#line 1817 "15CS10060.y" /* yacc.c:1646  */
+#line 1818 "15CS10060.y" /* yacc.c:1646  */
     {
 											//done
 											(yyval.declara).type = VOID_;
 											(yyval.declara).width = SIZE_OF_VOID;
 											////////////////printf(" RULE:\ttype_specifiers \t->\t  VOID\n");
 										}
-#line 3681 "y.tab.c" /* yacc.c:1646  */
+#line 3682 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 87:
-#line 1823 "15CS10060.y" /* yacc.c:1646  */
+#line 1824 "15CS10060.y" /* yacc.c:1646  */
     {
 											(yyval.declara).type = CHAR_;
 											(yyval.declara).width = SIZE_OF_CHAR;
 										////////////////printf(" RULE:\ttype_specifiers \t->\t CHAR \n");
 										}
-#line 3691 "y.tab.c" /* yacc.c:1646  */
+#line 3692 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 88:
-#line 1828 "15CS10060.y" /* yacc.c:1646  */
+#line 1829 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\ttype_specifiers \t->\t SHORT \n");
 		}
-#line 3698 "y.tab.c" /* yacc.c:1646  */
+#line 3699 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 89:
-#line 1830 "15CS10060.y" /* yacc.c:1646  */
+#line 1831 "15CS10060.y" /* yacc.c:1646  */
     { (yyval.declara).type = INT_; (yyval.declara).width = SIZE_OF_INT; //////////////printf(" RULE:\ttype_specifiers \t->\t INT \n");
 		}
-#line 3705 "y.tab.c" /* yacc.c:1646  */
+#line 3706 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 90:
-#line 1832 "15CS10060.y" /* yacc.c:1646  */
+#line 1833 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\ttype_specifiers \t->\t LONG \n");
 		}
-#line 3712 "y.tab.c" /* yacc.c:1646  */
+#line 3713 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 91:
-#line 1834 "15CS10060.y" /* yacc.c:1646  */
+#line 1835 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\ttype_specifiers \t->\t FLOAT \n");
 		}
-#line 3719 "y.tab.c" /* yacc.c:1646  */
+#line 3720 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 92:
-#line 1836 "15CS10060.y" /* yacc.c:1646  */
+#line 1837 "15CS10060.y" /* yacc.c:1646  */
     { (yyval.declara).type = DOUBLE_; (yyval.declara).width = SIZE_OF_DOUBLE; ////////////////printf(" RULE:\ttype_specifiers \t->\t DOUBLE \n");
 		}
-#line 3726 "y.tab.c" /* yacc.c:1646  */
+#line 3727 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 93:
-#line 1838 "15CS10060.y" /* yacc.c:1646  */
+#line 1839 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.declara).type = MATRIX_;/*to be done*/ (yyval.declara).type = MATRIX_;   //////////////printf(" RULE:\ttype_specifiers \t->\t MATRIX \n");
 		}
-#line 3733 "y.tab.c" /* yacc.c:1646  */
+#line 3734 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 94:
-#line 1840 "15CS10060.y" /* yacc.c:1646  */
+#line 1841 "15CS10060.y" /* yacc.c:1646  */
     {// //////////////printf(" RULE:\ttype_specifiers \t->\t SIGNED  \n");
 		}
-#line 3740 "y.tab.c" /* yacc.c:1646  */
+#line 3741 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 95:
-#line 1842 "15CS10060.y" /* yacc.c:1646  */
+#line 1843 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\ttype_specifiers \t->\t UNSIGNED \n");
 		}
-#line 3747 "y.tab.c" /* yacc.c:1646  */
+#line 3748 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 96:
-#line 1844 "15CS10060.y" /* yacc.c:1646  */
+#line 1845 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.declara).type = BOOL_; (yyval.declara).width = SIZE_OF_BOOL; ////////////////printf(" RULE:\ttype_specifiers \t->\t BOOL  \n");
 		}
-#line 3754 "y.tab.c" /* yacc.c:1646  */
+#line 3755 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 97:
-#line 1849 "15CS10060.y" /* yacc.c:1646  */
+#line 1850 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																		(yyval.expr) = (yyvsp[0].expr);
 																		////cout <<"here loc ="<<$$<<endl;
 																			 ////////////////printf(" RULE:\tdeclarator \t->\t direct_declarator\n");
 																			 }
-#line 3764 "y.tab.c" /* yacc.c:1646  */
+#line 3765 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 98:
-#line 1854 "15CS10060.y" /* yacc.c:1646  */
+#line 1855 "15CS10060.y" /* yacc.c:1646  */
     {//done	
 																			(yyval.expr) = (yyvsp[0].expr);
 																			(yyval.expr) -> isPointer =true;
 
 																			////////////////printf(" RULE:\tdeclarator \t->\t pointer direct_declarator\n");
 																		}
-#line 3775 "y.tab.c" /* yacc.c:1646  */
+#line 3776 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 99:
-#line 1863 "15CS10060.y" /* yacc.c:1646  */
+#line 1864 "15CS10060.y" /* yacc.c:1646  */
     {//done
 
 																	
@@ -3787,25 +3788,25 @@ if(type2 != DOUBLE_)
 																	////cout <<"here loc ="<<$$<<endl;
 																	////////////////printf(" RULE:\tdirect_declarator \t->\t identifier\n");
 																	}
-#line 3791 "y.tab.c" /* yacc.c:1646  */
+#line 3792 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 100:
-#line 1874 "15CS10060.y" /* yacc.c:1646  */
+#line 1875 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\tdirect_declarator \t->\t (declarator)");
 		}
-#line 3798 "y.tab.c" /* yacc.c:1646  */
+#line 3799 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 101:
-#line 1876 "15CS10060.y" /* yacc.c:1646  */
+#line 1877 "15CS10060.y" /* yacc.c:1646  */
     {////////////////printf(" RULE:\tdirect_declarator \t->\t direct_declarator[]");
 		}
-#line 3805 "y.tab.c" /* yacc.c:1646  */
+#line 3806 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 102:
-#line 1878 "15CS10060.y" /* yacc.c:1646  */
+#line 1879 "15CS10060.y" /* yacc.c:1646  */
     {
 		//cout <<"declaring matrix"<<endl;
 																	(yyval.expr) = (yyvsp[-6].expr);
@@ -3847,11 +3848,11 @@ if(type2 != DOUBLE_)
 																	// to be done for matrix
 																	//////////////printf(" RULE:\tdirect_declarator \t->\t direct_declarator[assignment_expression][' assignment_expression ']'\n\n\n\nn\n\n \n");
 																	}
-#line 3851 "y.tab.c" /* yacc.c:1646  */
+#line 3852 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 103:
-#line 1919 "15CS10060.y" /* yacc.c:1646  */
+#line 1920 "15CS10060.y" /* yacc.c:1646  */
     {
 																symbol_table_entry *tmp;
 																vector<func_param> l = (yyvsp[-1].f_param_list)->vec;
@@ -3879,11 +3880,11 @@ if(type2 != DOUBLE_)
 																// to be done for function
 																	//////////////printf(" RULE:\tdirect_declarator \t->\t direct_declarator(parameter_type_list)\n");
 																}
-#line 3883 "y.tab.c" /* yacc.c:1646  */
+#line 3884 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 104:
-#line 1947 "15CS10060.y" /* yacc.c:1646  */
+#line 1948 "15CS10060.y" /* yacc.c:1646  */
     {
 																        symbol_table *new_sym = new symbol_table;
 																        (yyval.expr) = (yyvsp[-2].expr);
@@ -3898,45 +3899,45 @@ if(type2 != DOUBLE_)
 																		// to be done for function
 																		//////////////printf(" RULE:\tdirect_declarator \t->\t direct_declarator()\n");
 																		}
-#line 3902 "y.tab.c" /* yacc.c:1646  */
+#line 3903 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 105:
-#line 1961 "15CS10060.y" /* yacc.c:1646  */
+#line 1962 "15CS10060.y" /* yacc.c:1646  */
     {
 																	// to be done for function
 																	//////////////printf(" RULE:\tdirect_declarator \t->\t direct_declarator(identifier_list)\n");
 																	}
-#line 3911 "y.tab.c" /* yacc.c:1646  */
+#line 3912 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 106:
-#line 1968 "15CS10060.y" /* yacc.c:1646  */
+#line 1969 "15CS10060.y" /* yacc.c:1646  */
     {
 																				// to be done - pointer
 																				//////////////printf(" RULE:\tpointer \t->\t *\n");
 																				}
-#line 3920 "y.tab.c" /* yacc.c:1646  */
+#line 3921 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 107:
-#line 1972 "15CS10060.y" /* yacc.c:1646  */
+#line 1973 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tpointer \t->\t * pointer\n");
 		}
-#line 3927 "y.tab.c" /* yacc.c:1646  */
+#line 3928 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 108:
-#line 1977 "15CS10060.y" /* yacc.c:1646  */
+#line 1978 "15CS10060.y" /* yacc.c:1646  */
     {// done
 																		(yyval.f_param_list) = (yyvsp[0].f_param_list);
 																		//////////////printf(" RULE:\tparameter_type_list \t->\t parameter_list\n");
 																	}
-#line 3936 "y.tab.c" /* yacc.c:1646  */
+#line 3937 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 109:
-#line 1984 "15CS10060.y" /* yacc.c:1646  */
+#line 1985 "15CS10060.y" /* yacc.c:1646  */
     {// done;
 																		(yyval.f_param_list) = new func_param_list;
 																		(yyval.f_param_list)->vec.push_back(*((yyvsp[0].f_par)));
@@ -3944,21 +3945,21 @@ if(type2 != DOUBLE_)
 
 																		//////////////printf(" RULE:\tparameter_list \t->\t parameter_declaration\n");
 																		}
-#line 3948 "y.tab.c" /* yacc.c:1646  */
+#line 3949 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 110:
-#line 1991 "15CS10060.y" /* yacc.c:1646  */
+#line 1992 "15CS10060.y" /* yacc.c:1646  */
     {/*done*/
 																		(yyval.f_param_list) = (yyvsp[-2].f_param_list);
 																		((yyval.f_param_list) -> vec).push_back(*((yyvsp[0].f_par)));
 																		//////////////printf(" RULE:\tparameter_list \t->\t parameter_list, parameter_declaration\n");
 																		}
-#line 3958 "y.tab.c" /* yacc.c:1646  */
+#line 3959 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 111:
-#line 1999 "15CS10060.y" /* yacc.c:1646  */
+#line 2000 "15CS10060.y" /* yacc.c:1646  */
     {/*done*/
 																		//GT->lookup($2->name)->type = $1.type;
 
@@ -3968,43 +3969,43 @@ if(type2 != DOUBLE_)
 																		(yyval.f_par)->isPointer = (yyvsp[0].expr)->isPointer;
 																		//////////////printf(" RULE:\tparameter_declaration \t->\t declaration_specifiers declarator\n");
 																		}
-#line 3972 "y.tab.c" /* yacc.c:1646  */
+#line 3973 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 112:
-#line 2008 "15CS10060.y" /* yacc.c:1646  */
+#line 2009 "15CS10060.y" /* yacc.c:1646  */
     {/*done*/
 																		(yyval.f_par) = new func_param;
 																		(yyval.f_par) -> name = "";
 																		(yyval.f_par) ->type = (yyvsp[0].declara).type;
 																		//////////////printf(" RULE:\tparameter_declaration \t->\t declaration_specifiers\n");
 																	}
-#line 3983 "y.tab.c" /* yacc.c:1646  */
+#line 3984 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 113:
-#line 2017 "15CS10060.y" /* yacc.c:1646  */
+#line 2018 "15CS10060.y" /* yacc.c:1646  */
     {/*to be done*///////////////printf(" RULE:\tidentifier_list \t->\t identifier\n");
 		}
-#line 3990 "y.tab.c" /* yacc.c:1646  */
+#line 3991 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 114:
-#line 2019 "15CS10060.y" /* yacc.c:1646  */
+#line 2020 "15CS10060.y" /* yacc.c:1646  */
     {/*to be done*///////////////printf(" RULE:\tidentifier_list \t->\t identifier_list, identifier\n");
 		}
-#line 3997 "y.tab.c" /* yacc.c:1646  */
+#line 3998 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 115:
-#line 2024 "15CS10060.y" /* yacc.c:1646  */
+#line 2025 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr); //////////////printf(" RULE:\tinitializer \t->\t assignment_expression \n");
 		}
-#line 4004 "y.tab.c" /* yacc.c:1646  */
+#line 4005 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 116:
-#line 2026 "15CS10060.y" /* yacc.c:1646  */
+#line 2027 "15CS10060.y" /* yacc.c:1646  */
     {
 																				(yyval.expr) = new expr_attr;
 																				(yyval.expr) -> is_matrix = true;
@@ -4012,182 +4013,182 @@ if(type2 != DOUBLE_)
 
 																				//////////////printf(" RULE:\tinitializer \t->\t { initializer_row_list } \n");
 																			}
-#line 4016 "y.tab.c" /* yacc.c:1646  */
+#line 4017 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 117:
-#line 2036 "15CS10060.y" /* yacc.c:1646  */
+#line 2037 "15CS10060.y" /* yacc.c:1646  */
     {
 																	(yyval.expr_row_list_pt) = new expr_row_list;
 																	(yyval.expr_row_list_pt)->vec.push_back(*((yyvsp[0].expr_row_pt)));
 																	//////////////printf(" RULE:\tinitializer_row_list \t->\t initializer_row\n");
 																	}
-#line 4026 "y.tab.c" /* yacc.c:1646  */
+#line 4027 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 118:
-#line 2041 "15CS10060.y" /* yacc.c:1646  */
+#line 2042 "15CS10060.y" /* yacc.c:1646  */
     {
 																	(yyval.expr_row_list_pt) = (yyvsp[-2].expr_row_list_pt);
 																	(yyval.expr_row_list_pt) -> vec.push_back(*((yyvsp[0].expr_row_pt)));
 																	//////////////printf(" RULE:\tinitializer_row_list \t->\t initializer_row_list ; initializer_row \n");
 																	}
-#line 4036 "y.tab.c" /* yacc.c:1646  */
+#line 4037 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 119:
-#line 2049 "15CS10060.y" /* yacc.c:1646  */
+#line 2050 "15CS10060.y" /* yacc.c:1646  */
     {
 																		(yyval.expr_row_pt) = new expr_row;
 																		(yyval.expr_row_pt)->vec.push_back(*((yyvsp[0].expr)));
 																		//////////////printf(" RULE:\tinitializer_row \t->\t initializer\n");
 																		}
-#line 4046 "y.tab.c" /* yacc.c:1646  */
+#line 4047 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 120:
-#line 2054 "15CS10060.y" /* yacc.c:1646  */
+#line 2055 "15CS10060.y" /* yacc.c:1646  */
     {	//not supported
 																		//////////////printf(" RULE:\tinitializer_row \t->\t designation initializer\n");
 																		}
-#line 4054 "y.tab.c" /* yacc.c:1646  */
+#line 4055 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 121:
-#line 2057 "15CS10060.y" /* yacc.c:1646  */
+#line 2058 "15CS10060.y" /* yacc.c:1646  */
     {
 																		(yyval.expr_row_pt) = (yyvsp[-2].expr_row_pt);
 																		(yyval.expr_row_pt)->vec.push_back(*((yyvsp[0].expr)));
 																		//////////////printf(" RULE:\tinitializer_row \t->\t initializer_row, initializer\n");
 																		}
-#line 4064 "y.tab.c" /* yacc.c:1646  */
+#line 4065 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 122:
-#line 2062 "15CS10060.y" /* yacc.c:1646  */
+#line 2063 "15CS10060.y" /* yacc.c:1646  */
     {// not supported
 																		//////////////printf(" RULE:\tinitializer_row \t->\t initializer_row, designation initializer\n");
 																		}
-#line 4072 "y.tab.c" /* yacc.c:1646  */
+#line 4073 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 123:
-#line 2068 "15CS10060.y" /* yacc.c:1646  */
+#line 2069 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdesignation \t->\t designator_list = \n");
 		}
-#line 4079 "y.tab.c" /* yacc.c:1646  */
+#line 4080 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 124:
-#line 2073 "15CS10060.y" /* yacc.c:1646  */
+#line 2074 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdesignator_list \t->\t designator\n");
 		}
-#line 4086 "y.tab.c" /* yacc.c:1646  */
+#line 4087 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 125:
-#line 2075 "15CS10060.y" /* yacc.c:1646  */
+#line 2076 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdesignator_list \t->\t designator_list designator\n");
 		}
-#line 4093 "y.tab.c" /* yacc.c:1646  */
+#line 4094 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 126:
-#line 2080 "15CS10060.y" /* yacc.c:1646  */
+#line 2081 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdesignator \t->\t [ constant_expression ] \n");
 		}
-#line 4100 "y.tab.c" /* yacc.c:1646  */
+#line 4101 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 127:
-#line 2082 "15CS10060.y" /* yacc.c:1646  */
+#line 2083 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdesignator \t->\t .identifier\n");
 		}
-#line 4107 "y.tab.c" /* yacc.c:1646  */
+#line 4108 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 128:
-#line 2087 "15CS10060.y" /* yacc.c:1646  */
+#line 2088 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tstatement \t->\t labeled_statement\n");
 		}
-#line 4114 "y.tab.c" /* yacc.c:1646  */
+#line 4115 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 129:
-#line 2089 "15CS10060.y" /* yacc.c:1646  */
+#line 2090 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tstatement \t->\t compound_statement\n");
 		}
-#line 4121 "y.tab.c" /* yacc.c:1646  */
+#line 4122 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 130:
-#line 2091 "15CS10060.y" /* yacc.c:1646  */
+#line 2092 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tstatement \t->\t expression_statement\n");
 		}
-#line 4128 "y.tab.c" /* yacc.c:1646  */
+#line 4129 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 131:
-#line 2093 "15CS10060.y" /* yacc.c:1646  */
+#line 2094 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tstatement \t->\t selection_statement\n");
 		}
-#line 4135 "y.tab.c" /* yacc.c:1646  */
+#line 4136 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 132:
-#line 2095 "15CS10060.y" /* yacc.c:1646  */
+#line 2096 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tstatement \t->\t iteration_statement\n");
 		}
-#line 4142 "y.tab.c" /* yacc.c:1646  */
+#line 4143 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 133:
-#line 2097 "15CS10060.y" /* yacc.c:1646  */
+#line 2098 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = (yyvsp[0].expr);//////////////printf(" RULE:\tstatement \t->\t jump_statement\n");
 		}
-#line 4149 "y.tab.c" /* yacc.c:1646  */
+#line 4150 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 134:
-#line 2102 "15CS10060.y" /* yacc.c:1646  */
+#line 2103 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tlabeled_statement \t->\t identifier : statement\n");
 		}
-#line 4156 "y.tab.c" /* yacc.c:1646  */
+#line 4157 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 135:
-#line 2104 "15CS10060.y" /* yacc.c:1646  */
+#line 2105 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tlabeled_statement \t->\t case constant_expression : statement\n");
 		}
-#line 4163 "y.tab.c" /* yacc.c:1646  */
+#line 4164 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 136:
-#line 2106 "15CS10060.y" /* yacc.c:1646  */
+#line 2107 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tlabeled_statement \t->\t default : statement\n");
 		}
-#line 4170 "y.tab.c" /* yacc.c:1646  */
+#line 4171 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 137:
-#line 2111 "15CS10060.y" /* yacc.c:1646  */
+#line 2112 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tcompound_statement \t->\t {}\n");
 		}
-#line 4177 "y.tab.c" /* yacc.c:1646  */
+#line 4178 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 138:
-#line 2113 "15CS10060.y" /* yacc.c:1646  */
+#line 2114 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																			(yyval.expr) = (yyvsp[-1].expr);
 																			Q_arr -> backpatch((yyvsp[-1].expr)->nextlist, Q_arr->index);
 																			//////////////printf(" RULE:\tcompound_statement \t->\t { block_item_list } \n");
 																			}
-#line 4187 "y.tab.c" /* yacc.c:1646  */
+#line 4188 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 139:
-#line 2121 "15CS10060.y" /* yacc.c:1646  */
+#line 2122 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																			////cout <<"XSD"<<endl;
 																			(yyval.expr) = (yyvsp[0].expr);
@@ -4195,11 +4196,11 @@ if(type2 != DOUBLE_)
 																			////cout <<"\nbackpatching\n\n";
         																	//Q_arr -> backpatch($1->nextlist, Q_arr->index);
         																}
-#line 4199 "y.tab.c" /* yacc.c:1646  */
+#line 4200 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 140:
-#line 2128 "15CS10060.y" /* yacc.c:1646  */
+#line 2129 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		////cout <<"\nbackpatching\n\n";
 																			//////cout <<"gdf"<<endl;
@@ -4209,43 +4210,43 @@ if(type2 != DOUBLE_)
 																	        (yyval.expr)->nextlist = (yyvsp[0].expr)->nextlist;
 																	        //////////////printf(" RULE:\tblock_item_list \t->\t block_item_list block_item\n");
 																	     }
-#line 4213 "y.tab.c" /* yacc.c:1646  */
+#line 4214 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 141:
-#line 2140 "15CS10060.y" /* yacc.c:1646  */
+#line 2141 "15CS10060.y" /* yacc.c:1646  */
     {
 																			(yyval.expr) = new expr_attr;
 																			//////////////printf(" RULE:\tblock_item \t->\t declaration\n");
 																			}
-#line 4222 "y.tab.c" /* yacc.c:1646  */
+#line 4223 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 142:
-#line 2144 "15CS10060.y" /* yacc.c:1646  */
+#line 2145 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) =(yyvsp[0].expr);//////////////printf(" RULE:\tblock_item \t->\t statement\n");
 		}
-#line 4229 "y.tab.c" /* yacc.c:1646  */
+#line 4230 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 143:
-#line 2149 "15CS10060.y" /* yacc.c:1646  */
+#line 2150 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																	(yyval.expr) = new expr_attr;
 																	//////////////printf(" RULE:\texpression_statement \t->\t ;");
 																	}
-#line 4238 "y.tab.c" /* yacc.c:1646  */
+#line 4239 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 144:
-#line 2153 "15CS10060.y" /* yacc.c:1646  */
+#line 2154 "15CS10060.y" /* yacc.c:1646  */
     {(yyval.expr) = new expr_attr;//////////////printf(" RULE:\texpression_statement \t->\t expression;");
 		}
-#line 4245 "y.tab.c" /* yacc.c:1646  */
+#line 4246 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 145:
-#line 2157 "15CS10060.y" /* yacc.c:1646  */
+#line 2158 "15CS10060.y" /* yacc.c:1646  */
     {//done
 		////cout <<"aaa"<<endl;
 																		        (yyval.expr) = new expr_attr;
@@ -4267,11 +4268,11 @@ if(type2 != DOUBLE_)
         																		//////////////printf(" RULE:\tselection_statement \t->\t if(expression) statement\n")
         																		;
         															}
-#line 4271 "y.tab.c" /* yacc.c:1646  */
+#line 4272 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 146:
-#line 2179 "15CS10060.y" /* yacc.c:1646  */
+#line 2180 "15CS10060.y" /* yacc.c:1646  */
     {
 																		        (yyval.expr) = new expr_attr;////cout <<"\nbackpatching\n\n";
 
@@ -4290,11 +4291,11 @@ if(type2 != DOUBLE_)
 
         //////////////printf(" RULE:\tselection_statement \t->\t if(expression) statement else statement\n");
         }
-#line 4294 "y.tab.c" /* yacc.c:1646  */
+#line 4295 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 147:
-#line 2199 "15CS10060.y" /* yacc.c:1646  */
+#line 2200 "15CS10060.y" /* yacc.c:1646  */
     {
 
  																						 (yyval.expr) = new expr_attr;
@@ -4312,11 +4313,11 @@ if(type2 != DOUBLE_)
 																					(yyval.expr)->nextlist = my_merge((yyvsp[-3].expr)->falselist, (yyvsp[0].expr)->nextlist);
 //////////////printf(" RULE:\tselection_statement \t->\t switch(expression) statement\n");
 		}
-#line 4316 "y.tab.c" /* yacc.c:1646  */
+#line 4317 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 148:
-#line 2219 "15CS10060.y" /* yacc.c:1646  */
+#line 2220 "15CS10060.y" /* yacc.c:1646  */
     {//done test
 																	Q_arr->emit("","","", OP_GOTO);
 																	////cout <<"\nbackpatching\n\n";
@@ -4332,11 +4333,11 @@ if(type2 != DOUBLE_)
 
 															        //////////////printf(" RULE:\titeration_statement \t->\t while(expression) statement\n");
 															        }
-#line 4336 "y.tab.c" /* yacc.c:1646  */
+#line 4337 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 149:
-#line 2234 "15CS10060.y" /* yacc.c:1646  */
+#line 2235 "15CS10060.y" /* yacc.c:1646  */
     {//done test
 																	(yyval.expr) = new expr_attr;
 															        Q_arr->convInt2Bool((yyvsp[-1].expr));
@@ -4346,11 +4347,11 @@ if(type2 != DOUBLE_)
 
 															        //////////////printf(" RULE:\titeration_statement \t->\t do statement while (expression)\n");
 															        }
-#line 4350 "y.tab.c" /* yacc.c:1646  */
+#line 4351 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 150:
-#line 2244 "15CS10060.y" /* yacc.c:1646  */
+#line 2245 "15CS10060.y" /* yacc.c:1646  */
     {//done test
     
         
@@ -4368,11 +4369,11 @@ if(type2 != DOUBLE_)
 																		        
 																				//////////////printf(" RULE:\titeration_statement \t->\t for(expression;expression;expression)\n");
 																				}
-#line 4372 "y.tab.c" /* yacc.c:1646  */
+#line 4373 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 151:
-#line 2263 "15CS10060.y" /* yacc.c:1646  */
+#line 2264 "15CS10060.y" /* yacc.c:1646  */
     {
 
 																				(yyval.expr) = new expr_attr;    
@@ -4389,32 +4390,32 @@ if(type2 != DOUBLE_)
 																		        
 																				//////////////printf(" RULE:\titeration_statement \t->\t for(;expression;expression)\n");
 		}
-#line 4393 "y.tab.c" /* yacc.c:1646  */
+#line 4394 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 152:
-#line 2282 "15CS10060.y" /* yacc.c:1646  */
+#line 2283 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tjump_statement \t->\t goto identifier;\n");
 		}
-#line 4400 "y.tab.c" /* yacc.c:1646  */
+#line 4401 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 153:
-#line 2284 "15CS10060.y" /* yacc.c:1646  */
+#line 2285 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tjump_statement \t->\t continue;\n");
 		}
-#line 4407 "y.tab.c" /* yacc.c:1646  */
+#line 4408 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 154:
-#line 2286 "15CS10060.y" /* yacc.c:1646  */
+#line 2287 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tjump_statement \t->\t break;\n");
 		}
-#line 4414 "y.tab.c" /* yacc.c:1646  */
+#line 4415 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 155:
-#line 2288 "15CS10060.y" /* yacc.c:1646  */
+#line 2289 "15CS10060.y" /* yacc.c:1646  */
     {//done
 																	(yyval.expr) = new expr_attr;
 
@@ -4425,11 +4426,11 @@ if(type2 != DOUBLE_)
 															        
 															        //////////////printf(" RULE:\tjump_statement \t->\t return;\n");
 															        }
-#line 4429 "y.tab.c" /* yacc.c:1646  */
+#line 4430 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 156:
-#line 2298 "15CS10060.y" /* yacc.c:1646  */
+#line 2299 "15CS10060.y" /* yacc.c:1646  */
     {
 																		 (yyval.expr) = new expr_attr;
 																        data_type type1, type2, type3;
@@ -4454,39 +4455,39 @@ if(type2 != DOUBLE_)
 																	
 																	//////////////printf(" RULE:\tjump_statement \t->\t return expression;\n");
 																	}
-#line 4458 "y.tab.c" /* yacc.c:1646  */
+#line 4459 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 157:
-#line 2325 "15CS10060.y" /* yacc.c:1646  */
+#line 2326 "15CS10060.y" /* yacc.c:1646  */
     {GT->name = string("Global Table");//////////////printf(" RULE:\ttranslation_unit \t->\t external_decalaration\n");
 		}
-#line 4465 "y.tab.c" /* yacc.c:1646  */
+#line 4466 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 158:
-#line 2327 "15CS10060.y" /* yacc.c:1646  */
+#line 2328 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\ttranslation_unit \t->\t translation_unit external_decalaration\n");
 		}
-#line 4472 "y.tab.c" /* yacc.c:1646  */
+#line 4473 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 159:
-#line 2332 "15CS10060.y" /* yacc.c:1646  */
+#line 2333 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\texternal_decalaration \t->\t function_definition\n");
 		}
-#line 4479 "y.tab.c" /* yacc.c:1646  */
+#line 4480 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 160:
-#line 2334 "15CS10060.y" /* yacc.c:1646  */
+#line 2335 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\texternal_decalaration \t->\t declaration\n");
 		}
-#line 4486 "y.tab.c" /* yacc.c:1646  */
+#line 4487 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 161:
-#line 2339 "15CS10060.y" /* yacc.c:1646  */
+#line 2340 "15CS10060.y" /* yacc.c:1646  */
     {//incomplete
 																	        symbol_table_entry *ret;
 																	        
@@ -4512,32 +4513,32 @@ if(type2 != DOUBLE_)
 
       																		  //////////////printf(" RULE:\tfunction_definition \t->\t declaration_specifiers declarator compound_statement\n");
       																		}
-#line 4516 "y.tab.c" /* yacc.c:1646  */
+#line 4517 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 162:
-#line 2364 "15CS10060.y" /* yacc.c:1646  */
+#line 2365 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tfunction_definition \t->\t declaration_specifiers declarator declaration_list compound_statement\n");
 		}
-#line 4523 "y.tab.c" /* yacc.c:1646  */
+#line 4524 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 163:
-#line 2369 "15CS10060.y" /* yacc.c:1646  */
+#line 2370 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdeclaration_list \t->\t declaration\n");
 		}
-#line 4530 "y.tab.c" /* yacc.c:1646  */
+#line 4531 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 164:
-#line 2371 "15CS10060.y" /* yacc.c:1646  */
+#line 2372 "15CS10060.y" /* yacc.c:1646  */
     {//////////////printf(" RULE:\tdeclaration_list \t->\t declaration_list declaration\n");
 		}
-#line 4537 "y.tab.c" /* yacc.c:1646  */
+#line 4538 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 4541 "y.tab.c" /* yacc.c:1646  */
+#line 4542 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -4765,7 +4766,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 2375 "15CS10060.y" /* yacc.c:1906  */
+#line 2376 "15CS10060.y" /* yacc.c:1906  */
 
 void yyerror(const char* s)
 {

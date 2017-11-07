@@ -129,6 +129,8 @@ public:
 	OP_UNARY_MINUS,
 	OP_AMPERSAND,
 	OP_STAR,
+	OP_NOT,
+	OP_COMPLEMENT,
 
 	//Conditional jump operators.
 	OP_IF_LESS,
@@ -237,6 +239,9 @@ public:
 	string arg1; // can be constant as well as check properly
 	string arg2; //name as in symbol tabel entry
 	string result; // name as in symbol table entry
+
+	void print(); //to be done
+
 
 
 };
