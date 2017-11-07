@@ -320,4 +320,59 @@ list<int> my_merge(list<int> a, list<int> b);
 bool typeCheck(expr_attr * e1, expr_attr * e2, bool isAssignment);
 bool convert_type(expr_attr *e, data_type t1, data_type t2);
 
+
+class Code_Generator
+{
+public:
+	string function_name;
+	string empty_string;
+	string global_string_start;
+	int stack_size;
+	int flag_parameter;
+	int memory_bind_ebp;
+	map<int, string> generate_goto;
+	int goto_label_count;
+	symbol_table_entry *row;
+	symbol_table *new_sym;
+	quad current_quad;
+	quad next_quad;
+	stack<vector<string> > stack_of_parameters;
+	int no_of_params;
+	int memory;
+	int stack_req;
+	int func_type;
+	int func_type_r;
+	int ptr_type;
+	int array_param ;
+	//string func_name;
+	Code_Generator()
+	{
+		empty_string = "";
+		function_name = "";
+		stack_size = 0;
+		global_string_start = ".LC";
+		row = NULL;
+		new_sym = NULL;
+		goto_label_count = 0;
+		memory_bind_ebp = 0;
+		memory = 16;
+		no_of_params = 0;
+		func_type = 0;
+		func_type_r = 0;
+		ptr_type = 0;
+		array_param = 0;
+
+	}
+	void create_Function_Prologue();
+	void create_Function_Epilogue();
+	void handle_Globals();
+	void Map_TAC_to_Assembly();
+	void handle_strings();
+	void set_GOTO_Labels_target();
+	//void create_Memory_Bindings();
+	string generate_GOTO_Labels();
+	void Bind_Memory_Record();
+	//void allocate_Registers();
+};
+
 #endif

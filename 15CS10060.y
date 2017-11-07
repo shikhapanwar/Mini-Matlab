@@ -10,6 +10,7 @@
 	quad_array *Q_arr = new quad_array;
 	symbol_table *GT = new symbol_table;
 	symbol_table *curr_symbol_table = GT;
+	vector<string> string_lits;
 	//GT->name = "Global Table";
 
 %}
@@ -192,6 +193,7 @@ primary_expression
 																			$$->name = tmp;
 																			$$->addr = curr_symbol_table->lookup(tmp); //  TO BE DONE set offset // TBD, STRING HANDLING!
 																			$$->addr->type = PTR_;
+																			string_lits.push_back(*$1);
 
 																			quad * q = Q_arr -> emit(tmp, (*($1)), OP_COPY);
 																			//////////////printf("RULE : primary_expression \t->\t string_literal\n");
