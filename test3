@@ -1,0 +1,9 @@
+void a()
+{
+	return 1;
+}
+int main()
+{
+	Matrix m[3][2] = {1,2; 3, 5; 8, 3;};
+	a(5);
+}
